@@ -18,7 +18,7 @@ a unified, structured incident report dataset with a web dashboard for filtering
 
 | Student | Modalities | Role |
 |---------|-----------|------|
-| Aniketh Bharath | PDF, Audio | PDF extraction + OCR pipeline, Whisper transcription, architecture diagram |
+| Aniketh Bharat | PDF, Audio | PDF extraction + OCR pipeline, Whisper transcription, architecture diagram |
 | Sree Vardhan Sunkara | Text NLP, Integration, Dashboard | spaCy NER, DistilBERT sentiment, dataset fusion, Streamlit dashboard |
 
 ---
