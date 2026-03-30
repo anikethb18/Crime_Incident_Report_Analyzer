@@ -1,0 +1,148 @@
+<svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+
+  <!-- Background -->
+  <rect width="900" height="620" fill="#F8FAFD" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="18" font-weight="bold" fill="#1F3864">Multimodal Crime / Incident Report Analyzer — AI Pipeline</text>
+  <text x="450" y="58" text-anchor="middle" font-size="12" fill="#666">3 Modalities: PDF · Audio · Text NLP</text>
+
+  <!-- ── INPUT LAYER ── -->
+  <text x="80" y="98" font-size="12" font-weight="bold" fill="#444">INPUT</text>
+
+  <!-- PDF Input -->
+  <rect x="30" y="108" width="130" height="52" rx="8" fill="#D6E4F7" stroke="#2E75B6" stroke-width="1.5"/>
+  <text x="95" y="130" text-anchor="middle" font-size="12" font-weight="bold" fill="#1F3864">📄 PDF Files</text>
+  <text x="95" y="147" text-anchor="middle" font-size="10" fill="#444">Police Reports</text>
+  <text x="95" y="159" text-anchor="middle" font-size="10" fill="#444">Scanned Docs</text>
+
+  <!-- Audio Input -->
+  <rect x="30" y="278" width="130" height="52" rx="8" fill="#D6F0E0" stroke="#2E8B57" stroke-width="1.5"/>
+  <text x="95" y="300" text-anchor="middle" font-size="12" font-weight="bold" fill="#1A5C38">🎙️ Audio Files</text>
+  <text x="95" y="317" text-anchor="middle" font-size="10" fill="#444">911 Calls</text>
+  <text x="95" y="329" text-anchor="middle" font-size="10" fill="#444">Field Interviews</text>
+
+  <!-- Text Input -->
+  <rect x="30" y="448" width="130" height="52" rx="8" fill="#FDE8D0" stroke="#C05A00" stroke-width="1.5"/>
+  <text x="95" y="470" text-anchor="middle" font-size="12" font-weight="bold" fill="#7B3800">📝 Text Files</text>
+  <text x="95" y="487" text-anchor="middle" font-size="10" fill="#444">Witness Statements</text>
+  <text x="95" y="499" text-anchor="middle" font-size="10" fill="#444">Tipline Messages</text>
+
+  <!-- ── PROCESSING LAYER ── -->
+  <text x="290" y="98" font-size="12" font-weight="bold" fill="#444">AI PROCESSING</text>
+
+  <!-- PDF Processor box -->
+  <rect x="195" y="108" width="190" height="140" rx="8" fill="#EBF3FB" stroke="#2E75B6" stroke-width="2"/>
+  <text x="290" y="128" text-anchor="middle" font-size="12" font-weight="bold" fill="#1F3864">PDF Processor</text>
+  <line x1="215" y1="135" x2="365" y2="135" stroke="#2E75B6" stroke-width="1"/>
+  <text x="290" y="152" text-anchor="middle" font-size="10" fill="#333">① pdfplumber extraction</text>
+  <text x="290" y="168" text-anchor="middle" font-size="10" fill="#333">② Scanned PDF detection</text>
+  <text x="290" y="184" text-anchor="middle" font-size="10" fill="#333">③ Tesseract OCR pipeline</text>
+  <text x="290" y="200" text-anchor="middle" font-size="10" fill="#333">   (pdf2image + pytesseract)</text>
+  <text x="290" y="216" text-anchor="middle" font-size="10" fill="#333">④ GPT-4o structured extract</text>
+  <rect x="215" y="228" width="150" height="14" rx="4" fill="#2E75B6" opacity="0.15"/>
+  <text x="290" y="239" text-anchor="middle" font-size="9" fill="#1F3864">pdfplumber · Tesseract · GPT-4o</text>
+
+  <!-- Audio Processor box -->
+  <rect x="195" y="278" width="190" height="130" rx="8" fill="#EAF7EE" stroke="#2E8B57" stroke-width="2"/>
+  <text x="290" y="298" text-anchor="middle" font-size="12" font-weight="bold" fill="#1A5C38">Audio Transcriber</text>
+  <line x1="215" y1="305" x2="365" y2="305" stroke="#2E8B57" stroke-width="1"/>
+  <text x="290" y="322" text-anchor="middle" font-size="10" fill="#333">① Whisper API transcription</text>
+  <text x="290" y="338" text-anchor="middle" font-size="10" fill="#333">   (openai whisper-1)</text>
+  <text x="290" y="354" text-anchor="middle" font-size="10" fill="#333">② Local fallback: whisper.base</text>
+  <text x="290" y="370" text-anchor="middle" font-size="10" fill="#333">③ GPT-4o structured extract</text>
+  <rect x="215" y="386" width="150" height="14" rx="4" fill="#2E8B57" opacity="0.15"/>
+  <text x="290" y="397" text-anchor="middle" font-size="9" fill="#1A5C38">Whisper · GPT-4o</text>
+
+  <!-- Text NLP box -->
+  <rect x="195" y="432" width="190" height="156" rx="8" fill="#FEF3E8" stroke="#C05A00" stroke-width="2"/>
+  <text x="290" y="452" text-anchor="middle" font-size="12" font-weight="bold" fill="#7B3800">Text NLP Analyzer</text>
+  <line x1="215" y1="459" x2="365" y2="459" stroke="#C05A00" stroke-width="1"/>
+  <text x="290" y="476" text-anchor="middle" font-size="10" fill="#333">① spaCy NER</text>
+  <text x="290" y="492" text-anchor="middle" font-size="10" fill="#333">   (PERSON, LOC, DATE, ORG)</text>
+  <text x="290" y="508" text-anchor="middle" font-size="10" fill="#333">② DistilBERT sentiment</text>
+  <text x="290" y="524" text-anchor="middle" font-size="10" fill="#333">   (high_distress → calm)</text>
+  <text x="290" y="540" text-anchor="middle" font-size="10" fill="#333">③ Keyword topic classify</text>
+  <text x="290" y="556" text-anchor="middle" font-size="10" fill="#333">④ GPT-4o structured extract</text>
+  <rect x="215" y="568" width="150" height="14" rx="4" fill="#C05A00" opacity="0.15"/>
+  <text x="290" y="579" text-anchor="middle" font-size="9" fill="#7B3800">spaCy · DistilBERT · GPT-4o</text>
+
+  <!-- ── INTEGRATOR ── -->
+  <rect x="440" y="250" width="180" height="190" rx="8" fill="#F0EBF8" stroke="#6A1B9A" stroke-width="2"/>
+  <text x="530" y="273" text-anchor="middle" font-size="12" font-weight="bold" fill="#4A148C">🔗 Integrator</text>
+  <line x1="460" y1="280" x2="600" y2="280" stroke="#6A1B9A" stroke-width="1"/>
+  <text x="530" y="298" text-anchor="middle" font-size="10" fill="#333">① Assign Incident_ID</text>
+  <text x="530" y="314" text-anchor="middle" font-size="10" fill="#333">   (date+type+location match)</text>
+  <text x="530" y="330" text-anchor="middle" font-size="10" fill="#333">② Pivot → 1 row/incident</text>
+  <text x="530" y="346" text-anchor="middle" font-size="10" fill="#333">③ Fuse suspects/victims/</text>
+  <text x="530" y="362" text-anchor="middle" font-size="10" fill="#333">   evidence (deduplicated)</text>
+  <text x="530" y="378" text-anchor="middle" font-size="10" fill="#333">④ Combined severity score</text>
+  <text x="530" y="394" text-anchor="middle" font-size="10" fill="#333">   audio + text + PDF signals</text>
+  <rect x="460" y="420" width="150" height="14" rx="4" fill="#6A1B9A" opacity="0.15"/>
+  <text x="535" y="431" text-anchor="middle" font-size="9" fill="#4A148C">merge.py · pandas</text>
+
+  <!-- ── OUTPUT LAYER ── -->
+  <text x="720" y="98" font-size="12" font-weight="bold" fill="#444">OUTPUT</text>
+
+  <!-- CSV/JSON output -->
+  <rect x="680" y="108" width="190" height="80" rx="8" fill="#FFF9E6" stroke="#F0A500" stroke-width="2"/>
+  <text x="775" y="130" text-anchor="middle" font-size="12" font-weight="bold" fill="#7B5800">📊 Structured Dataset</text>
+  <text x="775" y="150" text-anchor="middle" font-size="10" fill="#444">structured_incidents_latest.csv</text>
+  <text x="775" y="166" text-anchor="middle" font-size="10" fill="#444">structured_incidents_latest.json</text>
+  <text x="775" y="181" text-anchor="middle" font-size="10" fill="#888">32 columns · 1 row per incident</text>
+
+  <!-- Dashboard output -->
+  <rect x="680" y="218" width="190" height="80" rx="8" fill="#FFF0F5" stroke="#C2185B" stroke-width="2"/>
+  <text x="775" y="240" text-anchor="middle" font-size="12" font-weight="bold" fill="#880E4F">🖥️ Dashboard</text>
+  <text x="775" y="258" text-anchor="middle" font-size="10" fill="#444">Streamlit web app</text>
+  <text x="775" y="274" text-anchor="middle" font-size="10" fill="#444">Filters · Charts · Detail view</text>
+  <text x="775" y="289" text-anchor="middle" font-size="10" fill="#888">streamlit run dashboard/app.py</text>
+
+  <!-- ── ARROWS ── -->
+  <!-- PDF → PDF Processor -->
+  <line x1="160" y1="134" x2="193" y2="160" stroke="#2E75B6" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Audio → Audio Processor -->
+  <line x1="160" y1="304" x2="193" y2="330" stroke="#2E8B57" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <!-- Text → Text Processor -->
+  <line x1="160" y1="474" x2="193" y2="500" stroke="#C05A00" stroke-width="1.5" marker-end="url(#arr3)"/>
+
+  <!-- PDF Processor → Integrator -->
+  <line x1="385" y1="178" x2="438" y2="310" stroke="#2E75B6" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+  <!-- Audio Processor → Integrator -->
+  <line x1="385" y1="340" x2="438" y2="345" stroke="#2E8B57" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr2)"/>
+  <!-- Text Processor → Integrator -->
+  <line x1="385" y1="500" x2="438" y2="395" stroke="#C05A00" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr3)"/>
+
+  <!-- Integrator → Dataset -->
+  <line x1="620" y1="310" x2="678" y2="165" stroke="#6A1B9A" stroke-width="2" marker-end="url(#arr4)"/>
+  <!-- Integrator → Dashboard -->
+  <line x1="620" y1="345" x2="678" y2="275" stroke="#6A1B9A" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arr"  markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2E75B6"/>
+    </marker>
+    <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#2E8B57"/>
+    </marker>
+    <marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#C05A00"/>
+    </marker>
+    <marker id="arr4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6A1B9A"/>
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <rect x="30" y="568" width="840" height="40" rx="6" fill="#EEF2F7" stroke="#CCC" stroke-width="1"/>
+  <rect x="50"  y="580" width="12" height="12" fill="#2E75B6" rx="2"/>
+  <text x="68"  y="591" font-size="10" fill="#333">Modality 1 — PDF (pdfplumber + Tesseract OCR)</text>
+  <rect x="300" y="580" width="12" height="12" fill="#2E8B57" rx="2"/>
+  <text x="318" y="591" font-size="10" fill="#333">Modality 2 — Audio (Whisper)</text>
+  <rect x="490" y="580" width="12" height="12" fill="#C05A00" rx="2"/>
+  <text x="508" y="591" font-size="10" fill="#333">Modality 3 — Text NLP (spaCy + DistilBERT)</text>
+  <rect x="700" y="580" width="12" height="12" fill="#6A1B9A" rx="2"/>
+  <text x="718" y="591" font-size="10" fill="#333">Integration + Output</text>
+
+</svg>
