@@ -1,6 +1,6 @@
 # 🔍 Multimodal Crime / Incident Report Analyzer
 
-**COMP 4XXX — Final Assignment | Group of 2**
+**Final Assignment | Group of 2**
 
 An end-to-end AI pipeline that ingests unstructured data from **3 modalities** and produces
 a unified, structured incident report dataset with a web dashboard for filtering and querying.
